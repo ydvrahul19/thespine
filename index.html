@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Spine Centre – Gandhinagar's Premier Physiotherapy Clinic</title>
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 /* ===== ROOT VARIABLES ===== */
@@ -621,6 +622,385 @@ footer { background:#0d1f35; color:rgba(255,255,255,.65); padding:70px 5% 0; }
   .form-row { grid-template-columns:1fr; }
 }
 
+
+/* ===== LOGO STYLES ===== */
+.nav-logo-img {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(43,124,191,0.25);
+  box-shadow: 0 2px 12px rgba(26,46,74,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.nav-logo:hover .nav-logo-img {
+  transform: rotate(10deg) scale(1.08);
+  box-shadow: 0 6px 24px rgba(43,124,191,0.35);
+}
+.footer-logo-img {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(93,184,232,0.3);
+  box-shadow: 0 4px 20px rgba(93,184,232,0.2);
+  transition: transform 0.4s ease;
+}
+.footer-logo-img:hover { transform: rotate(-8deg) scale(1.05); }
+
+/* ===== ENHANCED GLOBAL ANIMATIONS ===== */
+@keyframes fadeInUp    { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInDown  { from{opacity:0;transform:translateY(-30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInLeft  { from{opacity:0;transform:translateX(-50px)} to{opacity:1;transform:translateX(0)} }
+@keyframes fadeInRight { from{opacity:0;transform:translateX(50px)} to{opacity:1;transform:translateX(0)} }
+@keyframes zoomIn      { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+@keyframes slideUp     { from{transform:translateY(100%);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes shimmer     { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes float       { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-12px)} }
+@keyframes pulse-ring  { 0%{transform:scale(1);opacity:.8} 100%{transform:scale(2.2);opacity:0} }
+@keyframes spin-slow   { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes heartbeat   { 0%,100%{transform:scale(1)} 14%{transform:scale(1.08)} 28%{transform:scale(1)} 42%{transform:scale(1.05)} }
+@keyframes borderPulse { 0%,100%{border-color:rgba(93,184,232,0.3)} 50%{border-color:rgba(93,184,232,0.8)} }
+@keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+@keyframes bounceIn    { 0%{transform:scale(0.3);opacity:0} 50%{transform:scale(1.05)} 70%{transform:scale(0.95)} 100%{transform:scale(1);opacity:1} }
+@keyframes slideInFromBottom { from{transform:translateY(60px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes glowPulse   { 0%,100%{box-shadow:0 0 10px rgba(93,184,232,0.2)} 50%{box-shadow:0 0 30px rgba(93,184,232,0.6),0 0 60px rgba(43,124,191,0.3)} }
+
+/* ===== ENHANCED NAVBAR ===== */
+#navbar {
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1) !important;
+}
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--sky), var(--blue));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+.nav-link:hover::after { width: 80%; }
+.nav-logo { transition: all 0.3s ease; }
+
+/* ===== ENHANCED HERO ===== */
+.hero-section {
+  background: linear-gradient(135deg,#070f1d 0%,#0d1f35 30%,#1a2e4a 65%,#1e4976 100%) !important;
+}
+.hero-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(93,184,232,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(43,124,191,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-badge {
+  animation: fadeInDown 0.8s ease 0.2s both;
+}
+.hero-title {
+  animation: fadeInUp 0.9s ease 0.4s both;
+}
+.hero-sub {
+  animation: fadeInUp 0.9s ease 0.6s both;
+}
+.hero-stats {
+  animation: fadeInUp 0.9s ease 0.8s both;
+}
+.hero-btns {
+  animation: fadeInUp 0.9s ease 1.0s both;
+}
+.hero-right {
+  animation: fadeInRight 1s ease 0.5s both;
+}
+.hero-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: float 6s ease-in-out infinite;
+}
+.hero-card:nth-child(2) { animation-delay: 1s; }
+.hero-card:nth-child(3) { animation-delay: 2s; }
+.hero-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 20px 50px rgba(26,46,74,0.25) !important;
+}
+
+/* ===== ENHANCED BUTTONS ===== */
+.btn-primary {
+  background: linear-gradient(135deg, var(--mint), var(--green)) !important;
+  background-size: 200% 200% !important;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1) !important;
+  position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--green), var(--navy));
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:hover { transform: translateY(-3px) !important; box-shadow: 0 15px 40px rgba(45,106,79,0.45) !important; }
+.btn-book {
+  transition: all 0.3s ease !important;
+  position: relative; overflow: hidden;
+}
+.btn-book::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.4s ease;
+}
+.btn-book:hover::after { left: 100%; }
+
+/* ===== ENHANCED SERVICE CARDS ===== */
+.sh-card {
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s ease !important;
+}
+.sh-card:hover {
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 30px 70px rgba(26,46,74,0.3) !important;
+}
+.shc-bg-img { transition: transform 0.7s cubic-bezier(0.4,0,0.2,1) !important; }
+.sh-card:hover .shc-bg-img { transform: scale(1.12) !important; }
+
+/* ===== ENHANCED CARDS ===== */
+.testi-card, .mva-card, .benefit-card {
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease !important;
+}
+.testi-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 25px 60px rgba(26,46,74,0.18) !important;
+}
+.mva-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 25px 60px rgba(26,46,74,0.2) !important;
+}
+.benefit-card:hover { transform: translateY(-6px) !important; }
+
+/* ===== QUALITY IMAGES ENHANCED ===== */
+.qi-photo {
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1), box-shadow 0.6s ease !important;
+}
+.qi-photo:hover { transform: scale(1.04) rotate(1deg) !important; box-shadow: 0 30px 70px rgba(26,46,74,0.25) !important; }
+.qi-photo img { transition: transform 0.6s ease !important; }
+.qi-photo:hover img { transform: scale(1.06) !important; }
+
+/* ===== SECTION PILL ENHANCED ===== */
+.section-pill {
+  animation: fadeInDown 0.6s ease both;
+  transition: all 0.3s ease;
+}
+.section-pill:hover {
+  background: rgba(45,106,79,0.15) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(45,106,79,0.2);
+}
+
+/* ===== STAT CARDS ===== */
+.stat-card, .hero-stat {
+  transition: all 0.4s ease !important;
+}
+.hero-stat:hover { transform: translateY(-4px) scale(1.05) !important; }
+
+/* ===== FOOTER ENHANCED ===== */
+footer {
+  position: relative;
+  background: linear-gradient(135deg, #070f1d 0%, #0d1f35 50%, #0a1929 100%) !important;
+}
+footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sky), var(--blue), transparent);
+}
+.footer-col h4 {
+  position: relative; padding-bottom: 10px; margin-bottom: 1.5rem !important;
+}
+.footer-col h4::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 30px; height: 2px;
+  background: linear-gradient(90deg, var(--sky), var(--blue));
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.footer-col:hover h4::after { width: 60px; }
+.footer-col ul li a {
+  transition: all 0.3s ease !important;
+  display: inline-block;
+}
+.footer-col ul li a:hover { color: var(--sky) !important; transform: translateX(6px) !important; }
+.fs-btn {
+  transition: all 0.3s ease !important;
+  animation: float 3s ease-in-out infinite;
+}
+.fs-btn:nth-child(2) { animation-delay: 0.5s; }
+.fs-btn:nth-child(3) { animation-delay: 1s; }
+.fs-btn:hover { transform: translateY(-6px) scale(1.15) !important; }
+
+/* ===== PAGE HEADER ENHANCED ===== */
+.page-header {
+  background: linear-gradient(135deg, #070f1d 0%, #1a2e4a 50%, #1e4976 100%) !important;
+  position: relative; overflow: hidden;
+}
+.page-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(93,184,232,0.12) 0%, transparent 60%);
+}
+.page-header h1 {
+  animation: fadeInUp 0.8s ease both;
+  background: linear-gradient(135deg, #fff 0%, var(--sky) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.page-header p { animation: fadeInUp 0.8s ease 0.2s both; }
+
+/* ===== BOOKING FORM ===== */
+.booking-form input, .booking-form select, .booking-form textarea {
+  transition: all 0.3s ease !important;
+}
+.booking-form input:focus, .booking-form select:focus {
+  border-color: var(--blue) !important;
+  box-shadow: 0 0 0 4px rgba(43,124,191,0.15) !important;
+  transform: translateY(-1px);
+}
+
+/* ===== PROCESS STEPS ===== */
+.ps-step {
+  transition: all 0.4s ease !important;
+}
+.ps-step:hover {
+  transform: translateY(-6px) !important;
+}
+.ps-icon {
+  transition: all 0.4s ease !important;
+}
+.ps-step:hover .ps-icon {
+  transform: rotate(10deg) scale(1.1) !important;
+  background: linear-gradient(135deg, var(--blue), var(--sky)) !important;
+}
+
+/* ===== DROPDOWN MENU ENHANCED ===== */
+.dropdown-item {
+  transition: all 0.25s ease !important;
+}
+.dropdown-item:hover {
+  transform: translateX(6px) !important;
+  background: linear-gradient(135deg, var(--gray), var(--light)) !important;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float { animation: float 3s ease-in-out infinite, glowPulse 3s ease-in-out infinite !important; }
+
+/* ===== SCROLL REVEAL =====*/
+[data-aos] {
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1) !important;
+}
+[data-aos="fade-up"]    { opacity:0; transform:translateY(50px); }
+[data-aos="fade-down"]  { opacity:0; transform:translateY(-30px); }
+[data-aos="fade-left"]  { opacity:0; transform:translateX(50px); }
+[data-aos="fade-right"] { opacity:0; transform:translateX(-50px); }
+[data-aos="zoom-in"]    { opacity:0; transform:scale(0.85); }
+[data-aos].aos-animate  { opacity:1 !important; transform:none !important; }
+
+/* ===== CURSOR GLOW TRAIL ===== */
+.cursor-glow {
+  position: fixed;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(93,184,232,0.6), transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s ease, opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+/* ===== SHIMMER LOADING EFFECT for images ===== */
+.qi-photo img, .shs-img img, .comp-img-main img {
+  transition: transform 0.6s ease, filter 0.4s ease !important;
+  filter: brightness(0.95);
+}
+.qi-photo:hover img, .shs-img:hover img { filter: brightness(1.05) saturate(1.1) !important; }
+
+/* ===== COUNTER BOXES ===== */
+.qsf-n, .sb-num, .cib-num {
+  background: linear-gradient(135deg, var(--blue), var(--sky));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+
+/* ===== SMOOTH PAGE TRANSITIONS ===== */
+.page { animation: none; }
+.page.active { animation: fadeInUp 0.5s cubic-bezier(0.4,0,0.2,1) both; }
+
+/* ===== HERO PARTICLE DOTS ===== */
+.hero-particles {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.hero-particles span {
+  position: absolute; border-radius: 50%;
+  background: rgba(93,184,232,0.35);
+  animation: float var(--dur,6s) ease-in-out infinite;
+  animation-delay: var(--delay,0s);
+}
+
+/* ===== SECTION DIVIDER WAVE ===== */
+.wave-divider { line-height: 0; overflow: hidden; }
+.wave-divider svg { display: block; width: 100%; }
+
+/* ===== ENHANCED STAT NUMBERS ===== */
+.stat-n, .qbs-n {
+  background: linear-gradient(135deg, var(--blue), var(--sky));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== HOVER UNDERLINE LINKS in nav ===== */
+.nav-logo-img { display: block; }
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+.scroll-top {
+  position: fixed; bottom: 90px; right: 24px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--sky));
+  color: white; border: none; cursor: pointer; z-index: 999;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; box-shadow: 0 4px 20px rgba(43,124,191,0.4);
+  opacity: 0; transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+.scroll-top.visible { opacity: 1; transform: translateY(0); }
+.scroll-top:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(43,124,191,0.6); }
+
+/* ===== IMAGE HOVER OVERLAY ===== */
+.sh-card .shc-overlay {
+  transition: background 0.5s ease !important;
+}
+
+/* ===== ENHANCED FOOTER BOTTOM ===== */
+.footer-bottom {
+  background: linear-gradient(90deg, rgba(93,184,232,0.05), transparent, rgba(93,184,232,0.05));
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* ===== GLOW ON SECTION PILLS ===== */
+.section-pill {
+  box-shadow: 0 2px 12px rgba(45,106,79,0.12);
+  transition: all 0.3s ease;
+}
+
+/* ===== BENEFIT CARD ICON ANIMATION ===== */
+.benefit-icon, .mva-icon {
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1) !important;
+}
+.benefit-card:hover .benefit-icon,
+.mva-card:hover .mva-icon {
+  transform: rotate(15deg) scale(1.15) !important;
+  background: linear-gradient(135deg, var(--blue), var(--sky)) !important;
+}
+
 </style>
 </head>
 <body>
@@ -628,25 +1008,11 @@ footer { background:#0d1f35; color:rgba(255,255,255,.65); padding:70px 5% 0; }
 <!-- ==============================
      NAVBAR
 ============================== -->
+<div class="cursor-glow" id="cursorGlow"></div>
 <nav id="navbar">
   <div class="nav-inner">
     <a class="nav-logo" href="#" onclick="showPage('home')">
-      <div class="logo-circle">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <rect x="12" y="4" width="12" height="6" rx="1" fill="#5db8e8"/>
-          <rect x="12" y="26" width="12" height="6" rx="1" fill="#5db8e8"/>
-          <rect x="4" y="14" width="6" height="8" rx="1" fill="#5db8e8"/>
-          <rect x="26" y="14" width="6" height="8" rx="1" fill="#5db8e8"/>
-          <rect x="10" y="10" width="16" height="16" rx="2" fill="#2b7cbf"/>
-          <path d="M18 13 Q15 16 15 18 Q15 20 18 23 Q21 20 21 18 Q21 16 18 13Z" fill="white"/>
-          <circle cx="15.5" cy="16" r="1" fill="white"/>
-          <circle cx="20.5" cy="20" r="1" fill="white"/>
-        </svg>
-      </div>
-      <div class="logo-text">
-        <span class="logo-top">THE SPINE</span>
-        <span class="logo-bot">CENTRE</span>
-      </div>
+      <img src="images/logo.jpg" alt="The Spine Centre" class="nav-logo-img">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#" onclick="showPage('home');return false;" class="nav-link">Home</a></li>
@@ -1415,14 +1781,16 @@ footer { background:#0d1f35; color:rgba(255,255,255,.65); padding:70px 5% 0; }
   </section>
 </div>
 
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner max-wrap">
     <div class="footer-brand">
       <div class="footer-logo">
-        <div class="logo-circle" style="width:44px;height:44px">
-          <svg width="28" height="28" viewBox="0 0 36 36" fill="none"><rect x="12" y="4" width="12" height="6" rx="1" fill="#5db8e8"/><rect x="12" y="26" width="12" height="6" rx="1" fill="#5db8e8"/><rect x="4" y="14" width="6" height="8" rx="1" fill="#5db8e8"/><rect x="26" y="14" width="6" height="8" rx="1" fill="#5db8e8"/><rect x="10" y="10" width="16" height="16" rx="2" fill="#2b7cbf"/><path d="M18 13 Q15 16 15 18 Q15 20 18 23 Q21 20 21 18 Q21 16 18 13Z" fill="white"/></svg>
-        </div>
+        <img src="images/logo.jpg" alt="The Spine Centre" class="footer-logo-img">
         <div class="logo-text"><span class="logo-top" style="color:white">THE SPINE</span><span class="logo-bot" style="color:rgba(255,255,255,.6)">CENTRE</span></div>
       </div>
       <p>Gandhinagar's trusted physiotherapy and spine care clinic. Expert treatment, compassionate care, lasting results.</p>
@@ -1722,6 +2090,129 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial counter check
   setTimeout(animateCounters, 800);
 });
+
+
+// ===== CURSOR GLOW TRAIL =====
+const glow = document.getElementById('cursorGlow');
+if (glow) {
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+    glow.style.opacity = '1';
+  });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+}
+
+// ===== NAVBAR SCROLL GLASSMORPHISM =====
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  const scrollY = window.scrollY;
+  if (scrollY > 50) {
+    nav.style.background = 'rgba(255,255,255,0.97)';
+    nav.style.backdropFilter = 'blur(20px)';
+    nav.style.boxShadow = '0 4px 30px rgba(26,46,74,.18)';
+  } else {
+    nav.style.background = 'rgba(255,255,255,0.97)';
+    nav.style.backdropFilter = 'blur(12px)';
+    nav.style.boxShadow = '0 2px 20px rgba(26,46,74,.07)';
+  }
+});
+
+// ===== MAGNETIC BUTTON EFFECT =====
+document.querySelectorAll('.btn-primary, .btn-book, .btn-white').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) translateY(-3px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+  });
+});
+
+// ===== STAGGERED CARD ANIMATIONS =====
+function staggerCards() {
+  const cardGroups = [
+    document.querySelectorAll('.page.active .mva-card'),
+    document.querySelectorAll('.page.active .benefit-card'),
+    document.querySelectorAll('.page.active .testi-card'),
+    document.querySelectorAll('.page.active .sh-card'),
+  ];
+  cardGroups.forEach(cards => {
+    cards.forEach((card, i) => {
+      card.style.animationDelay = (i * 0.1) + 's';
+    });
+  });
+}
+
+// ===== SMOOTH IMAGE REVEAL =====
+const imgObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'scale(1)';
+      imgObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.qi-photo img, .comp-img-main img').forEach(img => {
+  img.style.opacity = '0';
+  img.style.transform = 'scale(0.95)';
+  img.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  imgObserver.observe(img);
+});
+
+// ===== FOOTER LOGO SPIN ON HOVER =====
+const footerLogo = document.querySelector('.footer-logo-img');
+if (footerLogo) {
+  footerLogo.addEventListener('mouseenter', () => {
+    footerLogo.style.transition = 'transform 0.6s ease';
+    footerLogo.style.transform = 'rotate(360deg) scale(1.1)';
+  });
+  footerLogo.addEventListener('mouseleave', () => {
+    footerLogo.style.transform = 'rotate(0deg) scale(1)';
+  });
+}
+
+// Call stagger on init
+document.addEventListener('DOMContentLoaded', () => {
+  staggerCards();
+});
+
+
+// ===== SCROLL TO TOP BUTTON =====
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTopBtn');
+  if (btn) {
+    if (window.scrollY > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  }
+});
+
+// ===== HERO PARTICLES =====
+(function() {
+  const hero = document.querySelector('.hero-section');
+  if (!hero) return;
+  const container = document.createElement('div');
+  container.className = 'hero-particles';
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement('span');
+    const size = Math.random() * 5 + 2;
+    s.style.cssText = [
+      'width:' + size + 'px',
+      'height:' + size + 'px',
+      'left:' + (Math.random() * 100) + '%',
+      'top:' + (Math.random() * 100) + '%',
+      '--dur:' + (Math.random() * 6 + 5) + 's',
+      '--delay:-' + (Math.random() * 6) + 's',
+      'opacity:' + (Math.random() * 0.5 + 0.2)
+    ].join(';');
+    container.appendChild(s);
+  }
+  hero.appendChild(container);
+})();
 
 </script>
 </body>
