@@ -1001,6 +1001,170 @@ footer::before {
   background: linear-gradient(135deg, var(--blue), var(--sky)) !important;
 }
 
+
+/* ===== PAIN / WHERE DO YOU NEED ATTENTION ===== */
+.pain-section {
+  position: relative;
+  padding: 100px 5%;
+  overflow: hidden;
+  background: var(--navy);
+}
+.pain-bg-img {
+  position: absolute; inset: 0;
+  background: url('images/physio2.png') center/cover no-repeat;
+  opacity: 0.18;
+}
+.pain-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,20,40,0.92) 0%, rgba(26,46,74,0.88) 50%, rgba(30,73,118,0.85) 100%);
+}
+.pain-inner { position: relative; z-index: 2; }
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.pain-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  color: white; font-weight: 500; font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.pain-item::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(93,184,232,0.12), rgba(43,124,191,0.08));
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.pain-item:hover::before { opacity: 1; }
+.pain-item:hover { color: #5db8e8; transform: translateX(4px); }
+.pain-item:nth-child(3n) { border-right: none; }
+.pain-item-wide {
+  grid-column: span 1;
+}
+.pain-icon {
+  width: 42px; height: 42px;
+  background: rgba(93,184,232,0.15);
+  border: 1px solid rgba(93,184,232,0.25);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.pain-icon svg { width: 24px; height: 24px; }
+.pain-item:hover .pain-icon {
+  background: rgba(93,184,232,0.3);
+  border-color: rgba(93,184,232,0.6);
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ===== THERAPY PROCESS SECTION ===== */
+.therapy-process-section {
+  padding: 100px 5%;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.therapy-process-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--sky), var(--blue), var(--green));
+  background-size: 200%;
+  animation: gradientShift 4s ease infinite;
+}
+.tp-dot-line {
+  display: flex; justify-content: center; align-items: center;
+  margin-top: 0.5rem;
+}
+.tp-center-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--navy);
+  display: inline-block;
+  box-shadow: 0 0 0 4px rgba(26,46,74,0.1);
+}
+.tp-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  align-items: start;
+}
+.tp-step {
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+.tp-img-wrap {
+  position: relative;
+  width: 130px; height: 130px;
+  margin: 0 auto 1.5rem;
+}
+.tp-img-wrap img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 8px 30px rgba(26,46,74,0.18);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.tp-step:hover .tp-img-wrap img {
+  transform: scale(1.08);
+  box-shadow: 0 16px 50px rgba(26,46,74,0.28);
+}
+.tp-step-number {
+  position: absolute;
+  top: -6px; right: -6px;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--mint));
+  color: white; font-weight: 700; font-size: 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid white;
+  box-shadow: 0 4px 12px rgba(45,106,79,0.4);
+  transition: transform 0.3s ease;
+}
+.tp-step:hover .tp-step-number { transform: scale(1.2) rotate(10deg); }
+.tp-arrow {
+  position: absolute;
+  top: 50px; right: -20px;
+  width: 80px; z-index: 2;
+  opacity: 0.7;
+  animation: float 3s ease-in-out infinite;
+}
+.tp-step-last .tp-arrow { display: none; }
+.tp-step h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 0.75rem;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+.tp-step:hover h4 { color: var(--green); }
+.tp-step p {
+  font-size: 0.875rem; color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 900px) {
+  .pain-grid { grid-template-columns: repeat(2,1fr); max-width: 500px; }
+  .pain-item:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.08); }
+  .pain-item:nth-child(2n) { border-right: none; }
+  .tp-steps { grid-template-columns: repeat(2,1fr); gap: 40px 20px; }
+  .tp-arrow { display: none; }
+}
+@media(max-width: 560px) {
+  .pain-grid { grid-template-columns: 1fr 1fr; }
+  .tp-steps { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -1307,6 +1471,138 @@ footer::before {
       </div>
       <div class="text-center" style="margin-top:2.5rem">
         <a href="#" onclick="showPage('testimonials');return false;" class="btn-outline-green">See All Reviews →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== WHERE DO YOU NEED ATTENTION ===== -->
+  <section class="pain-section">
+    <div class="pain-bg-img"></div>
+    <div class="pain-overlay"></div>
+    <div class="max-wrap pain-inner">
+      <div class="text-center" style="position:relative;z-index:2;margin-bottom:3rem">
+        <div class="section-pill" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:white">Need Attention</div>
+        <h2 class="section-title" style="color:white;font-size:clamp(2rem,4vw,3rem)">Where Do You Need <span style="color:#5db8e8">Attention?</span></h2>
+        <p class="section-sub text-center" style="color:rgba(255,255,255,0.75);margin:0 auto;max-width:620px">Injuries and body pain can strike when you least expect them. At The Spine Centre, we offer personalised care for every body part — helping you manage pain, regain mobility, and recover quickly. Choose your area of concern.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-item" data-aos="fade-up" data-aos-delay="0" onclick="showPage('physio')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><circle cx="20" cy="8" r="5"/><path d="M20 13 Q18 22 15 28 M20 13 Q22 22 25 28"/><path d="M15 28 Q14 32 13 36 M25 28 Q26 32 27 36"/></svg>
+          </div>
+          <span>Neck Pain</span>
+        </div>
+        <div class="pain-item" data-aos="fade-up" data-aos-delay="60" onclick="showPage('physio')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><path d="M10 16 Q6 20 8 25 Q10 30 16 28 M30 16 Q34 20 32 25 Q30 30 24 28"/><path d="M16 20 Q20 18 24 20"/></svg>
+          </div>
+          <span>Shoulder Pain</span>
+        </div>
+        <div class="pain-item" data-aos="fade-up" data-aos-delay="120" onclick="showPage('physio')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><path d="M16 8 Q12 16 14 22 Q16 28 20 30 Q24 28 26 22 Q28 16 24 8 Z"/><path d="M14 22 Q10 26 10 32 M26 22 Q30 26 30 32"/></svg>
+          </div>
+          <span>Hip Pain</span>
+        </div>
+        <div class="pain-item" data-aos="fade-up" data-aos-delay="180" onclick="showPage('physio')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><path d="M14 10 Q10 16 12 22 Q14 26 20 26 Q26 26 28 22 Q30 16 26 10"/><path d="M12 22 Q10 30 12 36 M28 22 Q30 30 28 36"/><line x1="12" y1="24" x2="28" y2="24"/></svg>
+          </div>
+          <span>Knee Pain</span>
+        </div>
+        <div class="pain-item" data-aos="fade-up" data-aos-delay="240" onclick="showPage('physio')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><path d="M12 18 Q8 22 10 28 Q12 34 20 34 Q28 34 30 28 Q32 22 28 18"/><path d="M12 18 Q14 12 20 12 Q26 12 28 18"/></svg>
+          </div>
+          <span>Elbow Pain</span>
+        </div>
+        <div class="pain-item" data-aos="fade-up" data-aos-delay="300" onclick="showPage('physio')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><path d="M14 10 Q10 14 12 20 Q14 28 20 32 Q26 28 28 20 Q30 14 26 10 Z"/><path d="M12 22 Q8 24 8 30 M28 22 Q32 24 32 30"/></svg>
+          </div>
+          <span>Tricep Pain</span>
+        </div>
+        <div class="pain-item" data-aos="fade-up" data-aos-delay="360" onclick="showPage('physio')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><path d="M10 16 Q8 22 10 28 Q14 34 20 34 Q26 34 30 28 Q32 22 30 16"/><path d="M10 16 Q14 10 20 10 Q26 10 30 16"/><line x1="14" y1="26" x2="26" y2="26"/></svg>
+          </div>
+          <span>Hand Pain</span>
+        </div>
+        <div class="pain-item" data-aos="fade-up" data-aos-delay="420" onclick="showPage('physio')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><path d="M8 22 Q10 28 16 30 Q20 32 24 30 Q30 28 32 22 Q34 16 30 12 Q26 8 20 10 Q14 12 10 12 Q8 16 8 22Z"/></svg>
+          </div>
+          <span>Foot Pain</span>
+        </div>
+        <div class="pain-item" data-aos="fade-up" data-aos-delay="480" onclick="showPage('physio')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><path d="M10 20 Q12 14 20 12 Q28 14 30 20 Q32 26 28 30 Q24 34 20 34 Q16 34 12 30 Q8 26 10 20Z"/><line x1="10" y1="24" x2="30" y2="24"/></svg>
+          </div>
+          <span>Ankle Pain</span>
+        </div>
+        <div class="pain-item pain-item-wide" data-aos="fade-up" data-aos-delay="540" onclick="showPage('chiro')">
+          <div class="pain-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1.5"><path d="M20 6 Q18 10 20 14 Q22 18 20 22 Q18 26 20 30 Q22 34 20 38"/><path d="M14 10 Q18 12 22 10 M13 18 Q17 20 23 18 M13 26 Q17 28 23 26"/></svg>
+          </div>
+          <span>Low Back Pain</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR THERAPY PROCESS ===== -->
+  <section class="therapy-process-section">
+    <div class="max-wrap">
+      <div class="text-center" style="margin-bottom:3.5rem">
+        <div class="section-pill">Therapy Process</div>
+        <h2 class="section-title"><span class="color-green">Our</span> Therapy Process</h2>
+        <div class="tp-dot-line">
+          <span class="tp-center-dot"></span>
+        </div>
+      </div>
+      <div class="tp-steps">
+        <div class="tp-step" data-aos="fade-up" data-aos-delay="0">
+          <div class="tp-img-wrap">
+            <img src="images/physio1.png" alt="Get Paired With A Therapist">
+            <div class="tp-step-number">1</div>
+          </div>
+          <div class="tp-arrow">
+            <svg viewBox="0 0 80 20" fill="none"><path d="M0 10 Q20 2 40 10 Q60 18 80 10" stroke="#2d6a4f" stroke-width="2" stroke-dasharray="6 4"/><polyline points="70,5 80,10 70,15" stroke="#2d6a4f" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Get Paired With A Therapist</h4>
+          <p>We carefully match you with a certified physiotherapist based on your condition, goals, and preferences.</p>
+        </div>
+        <div class="tp-step" data-aos="fade-up" data-aos-delay="150">
+          <div class="tp-img-wrap">
+            <img src="images/craniosacral.png" alt="Choose Your Preferred Way">
+            <div class="tp-step-number">2</div>
+          </div>
+          <div class="tp-arrow">
+            <svg viewBox="0 0 80 20" fill="none"><path d="M0 10 Q20 18 40 10 Q60 2 80 10" stroke="#2d6a4f" stroke-width="2" stroke-dasharray="6 4"/><polyline points="70,5 80,10 70,15" stroke="#2d6a4f" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Choose Your Preferred Way To Receive Care</h4>
+          <p>Whether in-clinic or at home, we offer flexible treatment delivery that fits your schedule and comfort.</p>
+        </div>
+        <div class="tp-step" data-aos="fade-up" data-aos-delay="300">
+          <div class="tp-img-wrap">
+            <img src="images/rehabilitation.png" alt="Get Better Faster">
+            <div class="tp-step-number">3</div>
+          </div>
+          <div class="tp-arrow">
+            <svg viewBox="0 0 80 20" fill="none"><path d="M0 10 Q20 2 40 10 Q60 18 80 10" stroke="#2d6a4f" stroke-width="2" stroke-dasharray="6 4"/><polyline points="70,5 80,10 70,15" stroke="#2d6a4f" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h4>We Help You Get Better, Faster!</h4>
+          <p>Our evidence-based methods and personalised plans ensure measurable results in the shortest time possible.</p>
+        </div>
+        <div class="tp-step tp-step-last" data-aos="fade-up" data-aos-delay="450">
+          <div class="tp-img-wrap">
+            <img src="images/manual_therapy.png" alt="What Physiotherapy Can Help With">
+            <div class="tp-step-number">4</div>
+          </div>
+          <h4>What Physiotherapy Can Help With</h4>
+          <p>We also support patients with stress, trauma, or neurological recovery needs through integrated mental wellness therapies.</p>
+        </div>
       </div>
     </div>
   </section>
